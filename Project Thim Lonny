@@ -1,0 +1,63 @@
+Composants du réseau domestique:
+
+"PC-PT" X3 --> "Ordinateur des parents", "Ordinateur des enfants", "Ordinateur de bureau"
+"Laptop-PT" X 2 --> "Laptop Etudiant", "Laptop de jeu"
+"TabletPC-PT" X 1 --> "Tablet d'adolescent"
+"Printer" X1 --> "Imprimente familliale"
+"Home Router PT AC Wireless" X1 --> "Box FAI"
+____________________________________________
+
+Connectivité des composant au réseau:
+
+"Home Router" [Internet to GigabitEthernet0/0/0]
+"Ordinateur des parents" [FastEthernet0 to GigabitEthernet1]
+"Ordinateur des enfants" [FastEthernet0 to GigabitEthernet2]
+"Ordinateur de bureau" [FastEthernet0 to GigabitEthernet3]
+"Laptop Etudiant", "Laptop de jeu" [Wireless0 to Wireless Interface]
+"Tablet d'adolescent" [Wireless0 to Wireless Interface]
+"Imprimente familliale" [Wireless0 to Wireless Interface]
+_______________________________________________
+
+Cofiguration réseau domestique [protégé]:
+
+Réseau Ip: 192.168.0.0
+Subnet Mask: 255.255.255.0
+
+Router:
+
+Router Ip: 192.168.0.1
+
+DHCP configuration:
+
+Start Ip Address: 192.168.0.10 [Max users: 20]
+Ip Address Range: 192.168.0.10-29
+
+Wireless configuration:
+
+Network Mode: Auto
+Network SSID (personnalisé) --> "ReseauSPF"
+SSIC Brodcast: "Disabled"
+Security Mode: "WPA2 Personal"
+Encryption: "AES"
+Passphrase: "by849236V(eS"
+
+Device configuration:
+
+Ip de "Ordinateur des parents" (DHCP)
+Ip de "Ordinateur des enfants" (DHCP)
+Ip de "Ordinateur de bureau" (DHCP)
+Ip de "Laptop Etudiant" (DHCP)
+Ip de "Laptop de jeu" (DHCP)
+Ip de "Tablet d'adolescent" (DHCP)
+Ip de "Imprimente familliale" (DHCP)
+______________________________________________
+
+Internet simulation:
+
+"Router ISR4331" X5 --> "Internet1-5".
+"Internet1" Ip:
+"Internet2" Ip:
+"Internet3" Ip:
+"Internet4" Ip:
+"Internet5" Ip:
+______________________________________________
