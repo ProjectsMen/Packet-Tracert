@@ -1,0 +1,21 @@
+enable
+conf t
+interface GigabitEthernet0/0/0
+ip address 128.15.0.1 255.255.0.0
+no shutdown
+exit
+interface GigabitEthernet0/0/1
+ip address 120.24.38.92 255.0.0.0
+no shutdown
+exit
+ip default-gateway 120.24.38.92
+exit
+conf t
+ip dhcp excluded-address 128.15.0.1 128.15.0.10
+ip dhcp pool MpCorp
+default-router 128.15.0.1
+network 128.15.0.0 255.255.0.0
+end
+show ip interface brief
+copy running-config startup-config
+

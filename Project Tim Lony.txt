@@ -1,0 +1,182 @@
+Composants du réseau domestique:
+
+"PC-PT" X3 --> "Ordinateur des parents", "Ordinateur des enfants", "Ordinateur de bureau"
+"Laptop-PT" X 2 --> "Laptop Etudiant", "Laptop de jeu"
+"TabletPC-PT" X 1 --> "Tablet d'adolescent"
+"Printer" X1 --> "Imprimente familliale"
+"Home Router PT AC Wireless" X1 --> "Box FAI"
+
+Composants du réseau d'entreprise (MP):
+
+"PC-PT" X10 --> {
+
+"Comptabilité1-3"
+"Traitement d'image1-3"
+"Modélisation graphique1-3"
+"Ordinateur du directeur"
+}
+"Server-PT" --> "Serveur de stockage FTP"
+"2960-24TT" --> "Switch Entreprise (MP)"
+"ISR4331" --> "Router Entreprise (MP)" 
+____________________________________________
+
+Connectivité des composant au réseau (wireless network (P) ):
+
+"Home Router" [Internet to GigabitEthernet0/0/0] [LAN]
+"Ordinateur des parents" to "FAI 1" [FastEthernet0 to GigabitEthernet1] [LAN]
+"Ordinateur des enfants" to "FAI 1" [FastEthernet0 to GigabitEthernet2] [LAN]
+"Ordinateur de bureau" to "FAI 1" [FastEthernet0 to GigabitEthernet3] [LAN]
+"Laptop Etudiant", "Laptop de jeu" to "FAI 1" [Wireless0 to Wireless Interface] [LAN]
+"Tablet d'adolescent" to "FAI 1" [Wireless0 to Wireless Interface] [LAN]
+"Imprimente familliale" to "FAI 1" [Wireless0 to Wireless Interface] [LAN]
+"Home Router" to "Internet1" [Internet to GigabitEthernet0/0/0] [WAN]
+"Internet1" to "Internet2" [GigabitEthernet0/0/1 to GigabitEthernet0/0/0] [WAN]
+----
+Connectivité des composants au réseau (wireless network (MP )
+
+"Ordinateur familliale" to "FAI 2" [FastEthernet0 to GigabitEthernet1] [LAN]
+"Laptop de jeu" to "FAI 2" [Wireless0 to Wireless Interface] [LAN]
+"Vielle tablette" to "FAI 2" [Wireless0 to Wireless Interface] [LAN]
+"FAI 2" to "Internet2" [Internet to GgigabitEthernet0/0/1] [WAN]
+----
+Connectivité des composants au réseau (Entreprise (MpCorp) )
+
+"Comptabilité1" to "Switch Entreprise (MP)" [FastEthernet0 to FastEthernet0/2] [LAN]
+"Comptabilité2" to "Switch Entreprise (MP)" [FastEthernet0 to FastEthernet0/3] [LAN]
+"Comptabilité3" to "Switch Entreprise (MP)" [FastEthernet0 to FastEthernet0/4] [LAN]
+"Traitement d'image1" to "Switch Entreprise (MP)" [FastEthernet0 to FastEthernet0/5] [LAN]
+"Traitement d'image2" to "Switch Entreprise (MP)" [FastEthernet0 to FastEthernet0/6] [LAN]
+"Traitement d'image3" to "Switch Entreprise (MP)" [FastEthernet0 to FastEthernet0/7] [LAN]
+"Modélisation graphique1" to "Switch Entreprise (MP)" [FastEthernet0 to FastEthernet0/8] [LAN]
+"Modélisation graphique2" to "Switch Entreprise (MP)" [FastEthernet0 to FastEthernet0/9] [LAN]
+"Modélisation graphique3" to "Switch Entreprise (MP)" [FastEthernet0 to FastEthernet0/10] [LAN]
+"Ordinateur du directeur" to "Switch Entreprise (MP)" [FastEthernet0 to FastEthernet0/1] [LAN]
+"Serveur de stockage FTP" to "Switch Entreprise (MP)" [FastEthernet0 to GigabitEthernet2] [LAN]
+"Switch Entreprise (MP)" to "Router Entreprise (MP)" [GigabitEthernet0/0/1 to GigabitEthernet0/0/0] [LAN]
+"Router Entreprise (MP)" to "Port multiplicateur" [GigabitEthernet0/0/1 to FastEthernet0/0/1] [WAN]
+
+_______________________________________________
+
+Cofiguration réseau domestique [protégé]:
+
+Réseau Ip: 192.168.1.0
+Subnet Mask: 255.255.255.0
+
+Router:
+
+Router Ip: 192.168.1.1
+Router public Ip: 83.33.1.2
+
+DHCP configuration:
+
+Start Ip Address: 192.168.1.100 [Max users: 50]
+Ip Address Range: 192.168.1.100-49
+
+Wireless configuration:
+
+Network Mode: Auto
+Network SSID (personnalisé) --> "ReseauSPF"
+SSIC Brodcast: "Disabled"
+Security Mode: "WPA2 Personal"
+Encryption: "AES"
+Passphrase: "by849236V(eS"
+Administration password: "36Ml/SH8{"
+
+Device configuration:
+
+Ip de "Ordinateur des parents" (DHCP)
+Ip de "Ordinateur des enfants" (DHCP)
+Ip de "Ordinateur de bureau" (DHCP)
+Ip de "Laptop Etudiant" (DHCP)
+Ip de "Laptop de jeu" (DHCP)
+Ip de "Tablet d'adolescent" (DHCP)
+Ip de "Imprimente familliale" (DHCP)
+
+===============================================
+
+Cofiguration réseau domestique [non-protégé]:
+
+Réseau Ip: 192.168.0.0
+Subnet Mask: 255.255.255.0
+
+Router:
+
+Router Ip: 192.168.0.1
+Router public Ip: 26.39.71.201
+
+DHCP configuration:
+
+Start Ip Address: 192.168.0.100 [Max users: 50]
+Ip Address Range: 192.168.0.100-49
+
+Wireless configuration:
+
+Network Mode: Auto
+Network SSID (personnalisé) --> "Default"
+SSIC Brodcast: "Enable"
+Security Mode: "Disable"
+Encryption: "Disable"
+Passphrase: NONE
+Administration password: "admin"
+
+Device configuration:
+
+Ip de "Ordinateur des parents" (DHCP)
+Ip de "Laptop de jeu" (DHCP)
+Ip de "Vielle tablette" (DHCP)
+
+=========================================
+
+Configuration du réseau d'entreprise [non-protégé]:
+
+Réseau Ip: 128.15.0.0
+Subnet Mask: 255.255.0.0
+
+
+Router:
+
+Router Ip: 128.15.0.1
+Router public Ip: 120.24.38.92
+
+Switch:
+
+Vlan 1 Ip and Subnet Mask: 128.15.0.2 255.255.0.0
+
+Device configuration:
+
+Ip de "Comptabilité1" (DHCP)
+Ip de "Comptabilité2" (DHCP)
+Ip de "Comptabilité3" (DHCP)
+Ip de "Traitement d'image1" (DHCP)
+Ip de "Traitement d'image2" (DHCP)
+Ip de "Traitement d'image3" (DHCP)
+Ip de "Modélisation graphique1" (DHCP)
+Ip de "Modélisation graphique2" (DHCP)
+Ip de "Modélisation graphique3" (DHCP)
+Ip de "Ordinateur du directeur" (DHCP)
+Ip de "Serveur de stockage FTP" (DHCP)
+
+______________________________________________
+
+Internet simulation:
+
+"Router ISR4331" X2 --> "Internet1-2".
+"Internet1" Ip:
+- 83.59.186.8 (GigabitEthernet0/0/0)
+- 120.45.9.234 (GigabitEthernet0/0/1)
+- 99.43.28.91 (GigabitEthernet0/0/2)
+RIP configuration:
+
+- 120.0.0.0
+- 26.0.0.0
+
+"Internet2" Ip:
+- 120.45.9.235 (GigabitEthernet0/0/0)
+- 26.39.71.200 (GigabitEthernet0/0/1)
+RIP Configuration:
+
+- 83.0.0.0
+- 26.0.0.0
+
+"Switch0 2960-24tt" --> "Port multiplicateur".
+____________________________________
